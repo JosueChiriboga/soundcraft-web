@@ -33,14 +33,15 @@ pip install django pyodbc mssql-django pillow
 ** 4. Configurar la conexión a SQL Server
 Abre el archivo ***soundcraft/settings.py*** y ajusta el bloque DATABASES con los datos de tu instancia:
 
+```python
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'Soundcraft',
         'HOST': 'TU_SERVIDOR\\TU_INSTANCIA',  # Ej: MSI\\SQLEXPRESS
         'PORT': '',
-        'USER': 'TU_USUARIO',                  # Ej: JosueChiriboga
-        'PASSWORD': 'TU_PASSWORD',             # Ej: Josue2026
+        'USER': 'TU_USUARIO',                 # Ej: JosueChiriboga
+        'PASSWORD': 'TU_PASSWORD',            # Ej: Josue2026
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',
         },
