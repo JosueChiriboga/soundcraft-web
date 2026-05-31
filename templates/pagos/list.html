@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}- Pagos{% endblock %}
+
+{% block content %}
+<h1 class="page-title">💰 Pagos</h1>
+<div class="card">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Suscripción</th>
+                <th>Monto</th>
+                <th>Método</th>
+                <th>Estado</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in pagos %}
+            <tr>
+                <td>{{ p.idPago }}</td>
+                <td>#{{ p.Suscripcion_idSuscripcion.idSuscripcion }} — {{ p.Suscripcion_idSuscripcion.tipoPlanSuscripcion }}</td>
+                <td>${{ p.montoPago }}</td>
+                <td>{{ p.metodoPago }}</td>
+                <td>
+                    {% if p.estadoPago == 'Aprobado' %}
+                        <span class="badge badge-success">{{ p.estadoPago }}</span>
+                    {% elif p.estadoPago == 'No aplica' %}
+                        <span class="badge badge-warning">{{ p.estadoPago }}</span>
+                    {% else %}
+                        <span class="badge badge-danger">{{ p.estadoPago }}</span>
+                    {% endif %}
+                </td>
+                <td>{{ p.fechaPago|date:"d/m/Y" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

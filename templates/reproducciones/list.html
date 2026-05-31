@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}- Reproducciones{% endblock %}
+
+{% block content %}
+<h1 class="page-title">▶️ Reproducciones</h1>
+<div class="card">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Canción</th>
+                <th>País</th>
+                <th>Duración</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in reproducciones %}
+            <tr>
+                <td>{{ r.idReproduccion }}</td>
+                <td>{{ r.Usuario_idUsuario.nombreUsuario }}</td>
+                <td>{{ r.Cancion_idCancion.tituloCancion }}</td>
+                <td>{{ r.paisReproduccion }}</td>
+                <td>{{ r.duracionReproduccion }}</td>
+                <td>{{ r.fechaReproduccion|date:"d/m/Y H:i" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}- Artistas{% endblock %}
+
+{% block content %}
+<h1 class="page-title">🎤 Artistas</h1>
+<div class="card">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre Artístico</th>
+                <th>País</th>
+                <th>Discografía</th>
+                <th>Estado</th>
+                <th>Registro</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in artistas %}
+            <tr>
+                <td>{{ a.idArtista }}</td>
+                <td>{{ a.nombreArtisticoArtista }}</td>
+                <td>{{ a.paisOrigenArtista }}</td>
+                <td>{{ a.Discografia_idDiscografia.nombreDiscografia }}</td>
+                <td>
+                    {% if a.estadoArtista == 'Activo' %}
+                        <span class="badge badge-success">{{ a.estadoArtista }}</span>
+                    {% else %}
+                        <span class="badge badge-danger">{{ a.estadoArtista }}</span>
+                    {% endif %}
+                </td>
+                <td>{{ a.fechaRegistroArtista|date:"d/m/Y" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}- Canciones{% endblock %}
+
+{% block content %}
+<h1 class="page-title">🎵 Canciones</h1>
+<div class="card">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Duración</th>
+                <th>Pista</th>
+                <th>Álbum</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in canciones %}
+            <tr>
+                <td>{{ c.idCancion }}</td>
+                <td>{{ c.tituloCancion }}</td>
+                <td>{{ c.duracionCancion }}</td>
+                <td>{{ c.numeroPistaCancion }}</td>
+                <td>{{ c.Album_idAlbum.tituloAlbum }}</td>
+                <td>
+                    {% if c.estadoCancion == 'Publicada' %}
+                        <span class="badge badge-success">{{ c.estadoCancion }}</span>
+                    {% else %}
+                        <span class="badge badge-danger">{{ c.estadoCancion }}</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

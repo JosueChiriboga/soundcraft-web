@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}- Playlists{% endblock %}
+
+{% block content %}
+<h1 class="page-title">📋 Playlists</h1>
+<div class="card">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Usuario</th>
+                <th>Fecha Creación</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in playlists %}
+            <tr>
+                <td>{{ p.idPlaylist }}</td>
+                <td>{{ p.nombrePlaylist }}</td>
+                <td>{{ p.Usuario_idUsuario.nombreUsuario }}</td>
+                <td>{{ p.fechaCreacionPlaylist|date:"d/m/Y" }}</td>
+                <td>
+                    {% if p.estadoPlaylist == 'Activa' %}
+                        <span class="badge badge-success">{{ p.estadoPlaylist }}</span>
+                    {% else %}
+                        <span class="badge badge-danger">{{ p.estadoPlaylist }}</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

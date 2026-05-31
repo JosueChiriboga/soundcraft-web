@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}- Usuarios{% endblock %}
+
+{% block content %}
+<div class="toolbar">
+    <h1 class="page-title">👤 Usuarios</h1>
+    <div style="display:flex; gap:1rem; align-items:center;">
+        <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar usuario...">
+        <a href="{% url 'usuario_crear' %}" class="btn btn-primary">+ Nuevo Usuario</a>
+    </div>
+</div>
+
+<div class="card">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th><th>Nombre</th><th>Correo</th><th>País</th>
+                <th>Tipo</th><th>Estado</th><th>Registro</th><th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in usuarios %}
+            <tr>
+                <td>{{ u.idUsuario }}</td>
+                <td>{{ u.nombreUsuario }} {{ u.apellidoUsuario }}</td>
+                <td>{{ u.correoUsuario }}</td>
+                <td>{{ u.paisUsuario }}</td>
+                <td><span class="badge badge-info">{{ u.tipoUsuario }}</span></td>
+                <td>
+                    {% if u.estadoCuentaUsuario == 'Activo' %}
+                        <span class="badge badge-success">{{ u.estadoCuentaUsuario }}</span>
+                    {% elif u.estadoCuentaUsuario == 'Suspendido' %}
+                        <span class="badge badge-warning">{{ u.estadoCuentaUsuario }}</span>
+                    {% else %}
+                        <span class="badge badge-danger">{{ u.estadoCuentaUsuario }}</span>
+                    {% endif %}
+                </td>
+                <td>{{ u.fechaRegistroUsuario|date:"d/m/Y" }}</td>
+                <td style="display:flex; gap:0.5rem;">
+                    <a href="{% url 'usuario_editar' u.idUsuario %}" class="btn btn-warning">✏️</a>
+                    <form method="post" action="{% url 'usuario_eliminar' u.idUsuario %}">
+                        {% csrf_token %}
+                        <button type="button" class="btn btn-danger btn-delete-modal"
+                            data-nombre="{{ u.nombreUsuario }} {{ u.apellidoUsuario }}">🗑️</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

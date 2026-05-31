@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}- Suscripciones{% endblock %}
+
+{% block content %}
+<h1 class="page-title">💳 Suscripciones</h1>
+<div class="card">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Plan</th>
+                <th>Inicio</th>
+                <th>Fin</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in suscripciones %}
+            <tr>
+                <td>{{ s.idSuscripcion }}</td>
+                <td>{{ s.Usuario_idUsuario.nombreUsuario }}</td>
+                <td><span class="badge badge-info">{{ s.tipoPlanSuscripcion }}</span></td>
+                <td>{{ s.fechaInicioSuscripcion|date:"d/m/Y" }}</td>
+                <td>{{ s.fechaFinSuscripcion|date:"d/m/Y" }}</td>
+                <td>
+                    {% if s.estadoSuscripcion == 'Activa' %}
+                        <span class="badge badge-success">{{ s.estadoSuscripcion }}</span>
+                    {% elif s.estadoSuscripcion == 'Pendiente' %}
+                        <span class="badge badge-warning">{{ s.estadoSuscripcion }}</span>
+                    {% else %}
+                        <span class="badge badge-danger">{{ s.estadoSuscripcion }}</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

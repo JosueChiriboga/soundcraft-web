@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}- Regalías{% endblock %}
+
+{% block content %}
+<h1 class="page-title">🎼 Regalías</h1>
+<div class="card">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Artista</th>
+                <th>Período</th>
+                <th>Reproducciones</th>
+                <th>Monto Est. ($0.004)</th>
+                <th>Fecha Cálculo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in regalias %}
+            <tr>
+                <td>{{ r.idRegalia }}</td>
+                <td>{{ r.Artista_idArtista.nombreArtisticoArtista }}</td>
+                <td>{{ r.periodoRegalia }}</td>
+                <td>{{ r.totalReproduccionesRegalia }}</td>
+                <td>${{ r.totalReproduccionesRegalia|floatformat:0 }}</td>
+                <td>{{ r.fechaCalculoRegalia|date:"d/m/Y" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
