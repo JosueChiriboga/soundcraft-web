@@ -18,19 +18,19 @@ Antes de ejecutar el proyecto asegúrate de tener instalado:
 
 
 ### Instalación y Configuración
-** 1. Clonar el repositorio
+*1. Clonar el repositorio*
 bashgit clone https://github.com/JosueChiriboga/soundcraft-web.git
 cd soundcraft-web
-** 2. Crear y activar el entorno virtual
+*2. Crear y activar el entorno virtual*
 **Windows CMD:
 python -m venv venv
 venv\Scripts\activate
 **Windows PowerShell:
 python -m venv venv
 venv\Scripts\activate
-** 3. Instalar dependencias
+*3. Instalar dependencias*
 pip install django pyodbc mssql-django pillow
-** 4. Configurar la conexión a SQL Server
+*4. Configurar la conexión a SQL Server¨*
 Abre el archivo ***soundcraft/settings.py*** y ajusta el bloque DATABASES con los datos de tu instancia:
 
 ```python
@@ -50,10 +50,10 @@ DATABASES = {
 ```
 Nota: Si usas autenticación de Windows reemplaza USER y PASSWORD por 'trusted_connection': 'yes' dentro de OPTIONS.
 
-** 5. Verificar la conexión
+*5. Verificar la conexión*
 python manage.py check
 Debe mostrar: System check identified no issues (0 silenced).
-*** 6. Ejecutar el servidor
+*6. Ejecutar el servidor*
 python manage.py runserver
 Abre tu navegador en: http://127.0.0.1:8000
 
@@ -109,13 +109,14 @@ soundcraft_web/
 ```
 ### Base de Datos
 La base de datos Soundcraft está organizada en 5 esquemas en SQL Server:
-**Esquema - **Tablas
+*Esquema - Tablas*
+```python
 Seguridad: Usuario, UsuarioCancion, UsuarioArtista
 Catalogo: Artista, Album, Cancion, Genero, CancionGenero, Discografia
 Streaming: Playlist, PlaylistCancion, Reproduccion
 Comercial: Suscripcion
 Finanzas: Pago, Regalia
-
+```
 El script SQL completo de la base de datos se encuentra en la ENTREGA DE LA FASE 4 del proyecto integrador.
 
 ### Funcionalidades
@@ -126,8 +127,9 @@ El script SQL completo de la base de datos se encuentra en la ENTREGA DE LA FASE
 - Gráfica de dona con reproducciones por país
 - Tabla de últimas 10 reproducciones
 
-** Módulos de Gestión
-**Módulo - **Funcionalidades
+*Módulos de Gestión*
+```python
+Módulo - Funcionalidades
 Usuarios: CRUD completo (Crear, Leer, Editar, Eliminar)
 Artistas: Listado con discografía y estado
 Canciones: Listado con álbum y estado
@@ -137,7 +139,7 @@ Reproducciones: Historial completo ordenado por fecha
 Suscripciones: Listado con plan y estado
 Pagos: Listado con monto y método de pago
 Regalías: Listado por artista con período y reproducciones
-
+```
 ### Reportes
 
 Reproducciones por país (gráfica de barras horizontal)
@@ -152,6 +154,7 @@ Gráficas interactivas con Chart.js en Dashboard y Reportes
 Modal de confirmación al eliminar usuarios
 
 ### Tecnologías Utilizadas
+```python
 Tecnología - Versión - Uso
 Python 3.11.7 Lenguaje backend
 Django 5.2.14 Framework web
@@ -160,28 +163,31 @@ pyodbc 5.3.0 Driver ODBC
 Chart.js Latest CDN Gráficas interactivas
 SQL Server 2022 Base de datos
 ODBC Driver 17 Conexión ODBC
-
+```
 ### Dependencias
+```python
 django==5.2.14
 mssql-django==1.7.2
 pyodbc==5.3.0
 pillow==12.2.0
-
+```
 Instalar todas con:
 pip install django pyodbc mssql-django pillow
 
 ### Variables de Configuración Importantes
 En soundcraft/settings.py:
+```python
 pythonDEBUG = True          # Cambiar a False en producción
 ALLOWED_HOSTS = []    # Agregar el host en producción
 SECRET_KEY = '...'    # Cambiar en producción
-
+```
 ### Capturas de Pantalla
+```python
 **Vista - Descripción
 Dashboard: Estadísticas generales y gráficas
 Usuarios: CRUD completo con búsqueda y modal
 Reportes: 4 gráficas interactivas con Chart.js
-
+```
 ### Notas para Colaboradores
 
 No subas la carpeta venv/ al repositorio
@@ -198,12 +204,12 @@ Después de clonar, siempre activa el entorno virtual antes de trabajar:
 venv\Scripts\activate
 
 ### Referencias
-
+```python
 Documentación oficial de Django
 mssql-django en PyPI
 Chart.js
 ODBC Driver 17 for SQL Server
-
+```
 
 ### Información Académica
 
