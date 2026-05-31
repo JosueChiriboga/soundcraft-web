@@ -16,16 +16,15 @@ Antes de ejecutar el proyecto asegúrate de tener instalado:
 - Git
 - Visual Studio Code (recomendado)
 
-
 ### Instalación y Configuración
 *1. Clonar el repositorio*
 bashgit clone https://github.com/JosueChiriboga/soundcraft-web.git
 cd soundcraft-web
 *2. Crear y activar el entorno virtual*
-**Windows CMD:
+- Windows CMD:
 python -m venv venv
 venv\Scripts\activate
-**Windows PowerShell:
+- Windows PowerShell:
 python -m venv venv
 venv\Scripts\activate
 *3. Instalar dependencias*
@@ -142,16 +141,16 @@ Regalías: Listado por artista con período y reproducciones
 ```
 ### Reportes
 
-Reproducciones por país (gráfica de barras horizontal)
-Ingresos por método de pago (gráfica de pastel)
-Suscripciones por plan (gráfica de dona)
-Top 10 canciones más reproducidas (tabla)
+- Reproducciones por país (gráfica de barras horizontal)
+- Ingresos por método de pago (gráfica de pastel)
+- Suscripciones por plan (gráfica de dona)
+- Top 10 canciones más reproducidas (tabla)
 
 ### JavaScript
 
-Búsqueda en tiempo real en la tabla de usuarios
-Gráficas interactivas con Chart.js en Dashboard y Reportes
-Modal de confirmación al eliminar usuarios
+- Búsqueda en tiempo real en la tabla de usuarios
+- Gráficas interactivas con Chart.js en Dashboard y Reportes
+- Modal de confirmación al eliminar usuarios
 
 ### Tecnologías Utilizadas
 ```python
@@ -190,10 +189,10 @@ Reportes: 4 gráficas interactivas con Chart.js
 ```
 ### Notas para Colaboradores
 
-No subas la carpeta venv/ al repositorio
-No subas el archivo settings.py con credenciales reales — usa variables de entorno en producción
-Cada colaborador debe configurar su propio settings.py con su instancia de SQL Server
-Para modificar el frontend, los archivos relevantes son:
+1. No subas la carpeta venv/ al repositorio
+2. No subas el archivo settings.py con credenciales reales — usa variables de entorno en producción
+3. Cada colaborador debe configurar su propio settings.py con su instancia de SQL Server
+4. Para modificar el frontend, los archivos relevantes son:
 ```python
 static/css/style.css — estilos
 static/js/main.js — JavaScript
@@ -213,7 +212,7 @@ ODBC Driver 17 for SQL Server
 
 ### Información Académica
 
-Universidad: Universidad de las Américas (UDLA)
-Materia: Base de Datos II — 5481
-Fase: 4 — Interfaz Web
-Grupo: 3
+- Universidad: Universidad de las Américas (UDLA)
+- Materia: Base de Datos II — 5481
+- Fase: 4 — Interfaz Web
+- Grupo: 3
