@@ -1,12 +1,12 @@
 # Proyecto Integrador Base de Datos II
 ## Soundcraft Web - Fase 4
-Interfaz web desarrollada con Django y Python para gestionar la base de datos Soundcraft, una plataforma de streaming musical similar a Spotify. Este proyecto corresponde a la Fase 4 del Proyecto Integrador de la materia Base de Datos II (ITIZ-2201) de la Universidad de las Américas (UDLA).
+Interfaz web desarrollada con Django y Python para gestionar la base de datos Soundcraft, una plataforma de streaming musical similar a Spotify. Este proyecto corresponde a la Fase 4 del Proyecto Integrador de la materia Base de Datos II (5481) de la Universidad de las Américas (UDLA).
 
 Grupo 3 — Integrantes:
 - Josué Chiriboga
 - Mateo Cueva
 - Tatiana Fonseca
-```python
+
 ### Requisitos Previos
 Antes de ejecutar el proyecto asegúrate de tener instalado:
 
@@ -33,7 +33,7 @@ pip install django pyodbc mssql-django pillow
 ** 4. Configurar la conexión a SQL Server
 Abre el archivo ***soundcraft/settings.py*** y ajusta el bloque DATABASES con los datos de tu instancia:
 
-
+```python
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
@@ -47,7 +47,7 @@ DATABASES = {
         },
     }
 }
-
+```
 Nota: Si usas autenticación de Windows reemplaza USER y PASSWORD por 'trusted_connection': 'yes' dentro de OPTIONS.
 
 ** 5. Verificar la conexión
@@ -106,7 +106,7 @@ soundcraft_web/
 ├── .gitignore
 ├── README.md
 └── manage.py
-
+```
 ### Base de Datos
 La base de datos Soundcraft está organizada en 5 esquemas en SQL Server:
 **Esquema - **Tablas
@@ -188,11 +188,11 @@ No subas la carpeta venv/ al repositorio
 No subas el archivo settings.py con credenciales reales — usa variables de entorno en producción
 Cada colaborador debe configurar su propio settings.py con su instancia de SQL Server
 Para modificar el frontend, los archivos relevantes son:
-
+```python
 static/css/style.css — estilos
 static/js/main.js — JavaScript
 templates/ — templates HTML
-
+```
 Después de clonar, siempre activa el entorno virtual antes de trabajar:
 
 venv\Scripts\activate
