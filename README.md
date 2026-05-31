@@ -1,7 +1,8 @@
 # Proyecto Integrador Base de Datos II
 ## Soundcraft Web - Fase 4
 Interfaz web desarrollada con Django y Python para gestionar la base de datos Soundcraft, una plataforma de streaming musical similar a Spotify. Este proyecto corresponde a la Fase 4 del Proyecto Integrador de la materia Base de Datos II (ITIZ-2201) de la Universidad de las Américas (UDLA).
-**Grupo 3 — Integrantes:
+
+Grupo 3 — Integrantes:
 - Josué Chiriboga
 - Mateo Cueva
 - Tatiana Fonseca
