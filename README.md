@@ -46,7 +46,7 @@ DATABASES = {
             'driver': 'ODBC Driver 17 for SQL Server',
         },
     }
-}
+}```
 
 Nota: Si usas autenticación de Windows reemplaza USER y PASSWORD por 'trusted_connection': 'yes' dentro de OPTIONS.
 
