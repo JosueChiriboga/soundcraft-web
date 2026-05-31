@@ -6,7 +6,7 @@ Grupo 3 — Integrantes:
 - Josué Chiriboga
 - Mateo Cueva
 - Tatiana Fonseca
-
+```python
 ### Requisitos Previos
 Antes de ejecutar el proyecto asegúrate de tener instalado:
 
@@ -33,7 +33,7 @@ pip install django pyodbc mssql-django pillow
 ** 4. Configurar la conexión a SQL Server
 Abre el archivo ***soundcraft/settings.py*** y ajusta el bloque DATABASES con los datos de tu instancia:
 
-```python
+
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
@@ -46,7 +46,7 @@ DATABASES = {
             'driver': 'ODBC Driver 17 for SQL Server',
         },
     }
-}```
+}
 
 Nota: Si usas autenticación de Windows reemplaza USER y PASSWORD por 'trusted_connection': 'yes' dentro de OPTIONS.
 
@@ -58,6 +58,7 @@ python manage.py runserver
 Abre tu navegador en: http://127.0.0.1:8000
 
 ### Estructura del Proyecto
+```python
 soundcraft_web/
 ├── venv/                        # Entorno virtual (no se sube a GitHub)
 ├── soundcraft/                  # Configuración principal del proyecto
