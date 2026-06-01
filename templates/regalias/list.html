@@ -26,6 +26,11 @@
                 <td>${{ r.totalReproduccionesRegalia|multiply:0.004|floatformat:2 }}</td>
                 <td>{{ r.fechaCalculoRegalia|date:"d/m/Y" }}</td>
             </tr>
+            {% empty %}
+            <tr><td colspan="6" class="empty-state">
+                <div class="empty-state-icon">🎼</div>
+                <p>No hay regalías registradas.</p>
+            </td></tr>
             {% endfor %}
         </tbody>
     </table>

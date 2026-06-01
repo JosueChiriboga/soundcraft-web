@@ -31,6 +31,11 @@
                     {% endif %}
                 </td>
             </tr>
+            {% empty %}
+            <tr><td colspan="6" class="empty-state">
+                <div class="empty-state-icon">🎵</div>
+                <p>No hay canciones registradas.</p>
+            </td></tr>
             {% endfor %}
         </tbody>
     </table>
