@@ -8,24 +8,26 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    {% with url_name=request.resolver_match.url_name %}
     <nav class="navbar">
         <div class="navbar-brand">
-            <span class="logo">🎵 Soundcraft</span>
+            <a href="{% url 'dashboard' %}" class="logo">🎵 Soundcraft</a>
         </div>
         <ul class="navbar-menu">
-            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
-            <li><a href="{% url 'usuario_list' %}">Usuarios</a></li>
-            <li><a href="{% url 'artista_list' %}">Artistas</a></li>
-            <li><a href="{% url 'cancion_list' %}">Canciones</a></li>
-            <li><a href="{% url 'album_list' %}">Álbumes</a></li>
-            <li><a href="{% url 'playlist_list' %}">Playlists</a></li>
-            <li><a href="{% url 'reproduccion_list' %}">Reproducciones</a></li>
-            <li><a href="{% url 'suscripcion_list' %}">Suscripciones</a></li>
-            <li><a href="{% url 'pago_list' %}">Pagos</a></li>
-            <li><a href="{% url 'regalia_list' %}">Regalías</a></li>
-            <li><a href="{% url 'reportes' %}">Reportes</a></li>
+            <li><a href="{% url 'dashboard' %}" class="{% if url_name == 'dashboard' %}active{% endif %}">Dashboard</a></li>
+            <li><a href="{% url 'usuario_list' %}" class="{% if 'usuario' in url_name %}active{% endif %}">Usuarios</a></li>
+            <li><a href="{% url 'artista_list' %}" class="{% if 'artista' in url_name %}active{% endif %}">Artistas</a></li>
+            <li><a href="{% url 'cancion_list' %}" class="{% if 'cancion' in url_name %}active{% endif %}">Canciones</a></li>
+            <li><a href="{% url 'album_list' %}" class="{% if 'album' in url_name %}active{% endif %}">Álbumes</a></li>
+            <li><a href="{% url 'playlist_list' %}" class="{% if 'playlist' in url_name %}active{% endif %}">Playlists</a></li>
+            <li><a href="{% url 'reproduccion_list' %}" class="{% if 'reproduccion' in url_name %}active{% endif %}">Reproducciones</a></li>
+            <li><a href="{% url 'suscripcion_list' %}" class="{% if 'suscripcion' in url_name %}active{% endif %}">Suscripciones</a></li>
+            <li><a href="{% url 'pago_list' %}" class="{% if 'pago' in url_name %}active{% endif %}">Pagos</a></li>
+            <li><a href="{% url 'regalia_list' %}" class="{% if 'regalia' in url_name %}active{% endif %}">Regalías</a></li>
+            <li><a href="{% url 'reportes' %}" class="{% if url_name == 'reportes' %}active{% endif %}">Reportes</a></li>
         </ul>
     </nav>
+    {% endwith %}
 
     <!-- MODAL GLOBAL DE ELIMINACIÓN -->
     <div class="modal-overlay" id="deleteModal">

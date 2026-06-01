@@ -31,6 +31,11 @@ body {
     font-weight: bold;
     color: #6c63ff;
     padding: 1rem 0;
+    text-decoration: none;
+}
+
+.logo:hover {
+    color: #8a84ff;
 }
 
 .navbar-menu {
@@ -50,6 +55,11 @@ body {
 }
 
 .navbar-menu a:hover {
+    background: #6c63ff;
+    color: white;
+}
+
+.navbar-menu a.active {
     background: #6c63ff;
     color: white;
 }
