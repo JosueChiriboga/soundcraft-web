@@ -6,12 +6,13 @@
     <title>Soundcraft {% block title %}{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     {% with url_name=request.resolver_match.url_name %}
     <nav class="navbar">
         <div class="navbar-brand">
-            <a href="{% url 'dashboard' %}" class="logo">🎵 Soundcraft</a>
+            <a href="{% url 'dashboard' %}" class="logo"><i class="fas fa-headphones"></i> Soundcraft</a>
             <button class="navbar-toggle" id="navbarToggle">&#9776;</button>
         </div>
         <ul class="navbar-menu" id="navbarMenu">
@@ -33,7 +34,7 @@
     <!-- MODAL GLOBAL DE ELIMINACIÓN -->
     <div class="modal-overlay" id="deleteModal">
         <div class="modal-box">
-            <h3>⚠️ Confirmar Eliminación</h3>
+            <h3><i class="fas fa-triangle-exclamation"></i> Confirmar Eliminación</h3>
             <p>¿Estás seguro de eliminar a <strong id="deleteModalName"></strong>?</p>
             <div class="modal-actions">
                 <button class="btn btn-danger" id="confirmDelete">Sí, eliminar</button>

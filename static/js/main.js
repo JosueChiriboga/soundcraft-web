@@ -194,7 +194,8 @@ function initNavbarToggle() {
     const menu = document.getElementById('navbarMenu');
     if (!toggle || !menu) return;
 
-    toggle.addEventListener('click', function () {
+    toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
         menu.classList.toggle('open');
     });
 

@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="toolbar">
-    <h1 class="page-title">💰 Pagos</h1>
+    <h1 class="page-title"><i class="fas fa-money-bill-wave"></i> Pagos</h1>
     <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar pago...">
 </div>
 <div class="card">
@@ -38,7 +38,7 @@
             </tr>
             {% empty %}
             <tr><td colspan="6" class="empty-state">
-                <div class="empty-state-icon">💰</div>
+                <div class="empty-state-icon"><i class="fas fa-money-bill-wave"></i></div>
                 <p>No hay pagos registrados.</p>
             </td></tr>
             {% endfor %}

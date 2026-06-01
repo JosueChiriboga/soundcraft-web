@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="toolbar">
-    <h1 class="page-title">🎵 Canciones</h1>
+    <h1 class="page-title"><i class="fas fa-music"></i> Canciones</h1>
     <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar canción...">
 </div>
 <div class="card">
@@ -36,7 +36,7 @@
             </tr>
             {% empty %}
             <tr><td colspan="6" class="empty-state">
-                <div class="empty-state-icon">🎵</div>
+                <div class="empty-state-icon"><i class="fas fa-music"></i></div>
                 <p>No hay canciones registradas.</p>
             </td></tr>
             {% endfor %}

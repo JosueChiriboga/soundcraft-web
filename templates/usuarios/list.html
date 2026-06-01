@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="toolbar">
-    <h1 class="page-title">👤 Usuarios</h1>
+    <h1 class="page-title"><i class="fas fa-users"></i> Usuarios</h1>
     <div style="display:flex; gap:1rem; align-items:center;">
         <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar usuario...">
         <a href="{% url 'usuario_crear' %}" class="btn btn-primary">+ Nuevo Usuario</a>
@@ -37,17 +37,17 @@
                 </td>
                 <td>{{ u.fechaRegistroUsuario|date:"d/m/Y" }}</td>
                 <td style="display:flex; gap:0.5rem;">
-                    <a href="{% url 'usuario_editar' u.idUsuario %}" class="btn btn-warning">✏️</a>
+                    <a href="{% url 'usuario_editar' u.idUsuario %}" class="btn btn-warning"><i class="fas fa-pen-to-square"></i></a>
                     <form method="post" action="{% url 'usuario_eliminar' u.idUsuario %}">
                         {% csrf_token %}
                         <button type="button" class="btn btn-danger btn-delete-modal"
-                            data-nombre="{{ u.nombreUsuario }} {{ u.apellidoUsuario }}">🗑️</button>
+                            data-nombre="{{ u.nombreUsuario }} {{ u.apellidoUsuario }}"><i class="fas fa-trash"></i></button>
                     </form>
                 </td>
             </tr>
             {% empty %}
             <tr><td colspan="8" class="empty-state">
-                <div class="empty-state-icon">👤</div>
+                <div class="empty-state-icon"><i class="fas fa-users"></i></div>
                 <p>No hay usuarios registrados.</p>
             </td></tr>
             {% endfor %}

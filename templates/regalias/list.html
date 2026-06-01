@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="toolbar">
-    <h1 class="page-title">🎼 Regalías</h1>
+    <h1 class="page-title"><i class="fas fa-coins"></i> Regalías</h1>
     <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar regalía...">
 </div>
 <div class="card">
@@ -31,7 +31,7 @@
             </tr>
             {% empty %}
             <tr><td colspan="6" class="empty-state">
-                <div class="empty-state-icon">🎼</div>
+                <div class="empty-state-icon"><i class="fas fa-coins"></i></div>
                 <p>No hay regalías registradas.</p>
             </td></tr>
             {% endfor %}
