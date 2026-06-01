@@ -187,6 +187,25 @@ function initReportesCharts() {
 }
 
 // ============================================================
+// NAVBAR TOGGLE (RESPONSIVE)
+// ============================================================
+function initNavbarToggle() {
+    const toggle = document.getElementById('navbarToggle');
+    const menu = document.getElementById('navbarMenu');
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', function () {
+        menu.classList.toggle('open');
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.remove('open');
+        }
+    });
+}
+
+// ============================================================
 // INIT
 // ============================================================
 document.addEventListener('DOMContentLoaded', function () {
@@ -194,4 +213,5 @@ document.addEventListener('DOMContentLoaded', function () {
     initDeleteModal();
     initDashboardCharts();
     initReportesCharts();
+    initNavbarToggle();
 });

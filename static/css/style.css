@@ -52,6 +52,13 @@ body {
     gap: 1rem;
 }
 
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
@@ -62,6 +69,22 @@ body {
 
 .logo:hover {
     color: var(--color-primary-light);
+}
+
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    line-height: 1;
+}
+
+.navbar-toggle:hover {
+    background: var(--color-border);
 }
 
 .navbar-menu {
@@ -399,4 +422,42 @@ body {
 @media (max-width: 768px) {
     .dashboard-grid { grid-template-columns: 1fr; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0 1rem;
+    }
+
+    .navbar-brand {
+        width: 100%;
+        padding: 0.5rem 0;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        padding-bottom: 0.75rem;
+    }
+
+    .navbar-menu.open {
+        display: flex;
+    }
+
+    .navbar-menu li {
+        width: 100%;
+    }
+
+    .navbar-menu a {
+        display: block;
+        padding: 0.6rem 0.5rem;
+        border-radius: 6px;
+    }
 }
