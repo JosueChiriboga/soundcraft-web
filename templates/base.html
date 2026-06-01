@@ -12,7 +12,7 @@
     {% with url_name=request.resolver_match.url_name %}
     <nav class="navbar">
         <div class="navbar-brand">
-            <a href="{% url 'dashboard' %}" class="logo"><i class="fas fa-headphones"></i> Soundcraft</a>
+            <a href="{% url 'dashboard' %}" class="logo"><img src="{% static 'img/logo.png' %}" alt="Soundcraft" class="logo-img"> Soundcraft</a>
             <button class="navbar-toggle" id="navbarToggle">&#9776;</button>
         </div>
         <ul class="navbar-menu" id="navbarMenu">
