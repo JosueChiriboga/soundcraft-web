@@ -169,7 +169,7 @@ function initReportesCharts() {
                 labels: window.ingresosData.labels,
                 datasets: [{
                     data: window.ingresosData.values,
-                    backgroundColor: CHART_COLORS,
+                    backgroundColor: ['#7B2CBF', '#2ecc71', '#f0a500', '#3498db'],
                 }]
             },
             options: {
@@ -189,7 +189,10 @@ function initReportesCharts() {
                 labels: window.suscripcionesData.labels,
                 datasets: [{
                     data: window.suscripcionesData.values,
-                    backgroundColor: CHART_COLORS,
+                    backgroundColor: [
+                        '#7B2CBF','#e74c3c','#2ecc71',
+                        '#f0a500','#3498db','#9b59b6'
+                    ],
                 }]
             },
             options: {
