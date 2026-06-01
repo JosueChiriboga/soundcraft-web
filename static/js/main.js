@@ -5,16 +5,27 @@ function initSearch() {
     const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;
 
+    const countEl = document.getElementById('recordCount');
+
     searchInput.addEventListener('keyup', function () {
         const filter = this.value.toLowerCase();
         const table = document.querySelector('.table tbody');
         if (!table) return;
         const rows = table.querySelectorAll('tr');
 
+        let visible = 0;
         rows.forEach(row => {
             const text = row.textContent.toLowerCase();
-            row.style.display = text.includes(filter) ? '' : 'none';
+            const show = text.includes(filter);
+            row.style.display = show ? '' : 'none';
+            if (show && row.querySelector('td')) visible++;
         });
+
+        if (countEl) {
+            countEl.textContent = filter
+                ? `${visible} resultado${visible !== 1 ? 's' : ''}`
+                : `${rows.length} registros`;
+        }
     });
 }
 
@@ -56,10 +67,22 @@ function initDeleteModal() {
 }
 
 // ============================================================
+// CHART.JS - PALETA DE COLORES
+// ============================================================
+const CHART_COLORS = [
+    '#7B2CBF','#9B4CD9','#5e1fa0','#b56de8',
+    '#4a1880','#c98df0','#3d1266','#d4a8f5',
+    '#2c0d4d','#e0c3fa'
+];
+
+const CHART_GRID  = '#2a2a4e';
+const CHART_TICKS = '#aaa';
+const CHART_TEXT  = '#ccc';
+
+// ============================================================
 // CHART.JS - DASHBOARD
 // ============================================================
 function initDashboardCharts() {
-    // Gráfica de top canciones
     const topCancionesCtx = document.getElementById('topCancionesChart');
     if (topCancionesCtx && window.topCancionesData) {
         new Chart(topCancionesCtx, {
@@ -69,7 +92,7 @@ function initDashboardCharts() {
                 datasets: [{
                     label: 'Reproducciones',
                     data: window.topCancionesData.values,
-                    backgroundColor: '#6c63ff',
+                    backgroundColor: CHART_COLORS[0],
                     borderRadius: 6,
                 }]
             },
@@ -77,14 +100,13 @@ function initDashboardCharts() {
                 responsive: true,
                 plugins: { legend: { display: false } },
                 scales: {
-                    x: { ticks: { color: '#aaa' }, grid: { color: '#2a2a4e' } },
-                    y: { ticks: { color: '#aaa' }, grid: { color: '#2a2a4e' } }
+                    x: { ticks: { color: CHART_TICKS }, grid: { color: CHART_GRID } },
+                    y: { ticks: { color: CHART_TICKS }, grid: { color: CHART_GRID } }
                 }
             }
         });
     }
 
-    // Gráfica de últimas reproducciones por país
     const paisCtx = document.getElementById('paisChart');
     if (paisCtx && window.paisData) {
         new Chart(paisCtx, {
@@ -93,17 +115,13 @@ function initDashboardCharts() {
                 labels: window.paisData.labels,
                 datasets: [{
                     data: window.paisData.values,
-                    backgroundColor: [
-                        '#6c63ff','#e74c3c','#2ecc71','#f0a500',
-                        '#3498db','#9b59b6','#1abc9c','#e67e22',
-                        '#e91e63','#00bcd4'
-                    ],
+                    backgroundColor: CHART_COLORS,
                 }]
             },
             options: {
                 responsive: true,
                 plugins: {
-                    legend: { position: 'right', labels: { color: '#ccc', padding: 10 } }
+                    legend: { position: 'right', labels: { color: CHART_TEXT, padding: 10 } }
                 }
             }
         });
@@ -114,7 +132,6 @@ function initDashboardCharts() {
 // CHART.JS - REPORTES
 // ============================================================
 function initReportesCharts() {
-    // Reproducciones por país
     const repPaisCtx = document.getElementById('repPaisChart');
     if (repPaisCtx && window.repPaisData) {
         new Chart(repPaisCtx, {
@@ -124,7 +141,7 @@ function initReportesCharts() {
                 datasets: [{
                     label: 'Reproducciones',
                     data: window.repPaisData.values,
-                    backgroundColor: '#6c63ff',
+                    backgroundColor: CHART_COLORS[0],
                     borderRadius: 6,
                 }]
             },
@@ -133,14 +150,13 @@ function initReportesCharts() {
                 responsive: true,
                 plugins: { legend: { display: false } },
                 scales: {
-                    x: { ticks: { color: '#aaa' }, grid: { color: '#2a2a4e' } },
-                    y: { ticks: { color: '#aaa' }, grid: { color: '#2a2a4e' } }
+                    x: { ticks: { color: CHART_TICKS }, grid: { color: CHART_GRID } },
+                    y: { ticks: { color: CHART_TICKS }, grid: { color: CHART_GRID } }
                 }
             }
         });
     }
 
-    // Ingresos por método de pago
     const ingresosCtx = document.getElementById('ingresosChart');
     if (ingresosCtx && window.ingresosData) {
         new Chart(ingresosCtx, {
@@ -149,19 +165,18 @@ function initReportesCharts() {
                 labels: window.ingresosData.labels,
                 datasets: [{
                     data: window.ingresosData.values,
-                    backgroundColor: ['#6c63ff', '#2ecc71'],
+                    backgroundColor: CHART_COLORS,
                 }]
             },
             options: {
                 responsive: true,
                 plugins: {
-                    legend: { position: 'bottom', labels: { color: '#ccc' } }
+                    legend: { position: 'bottom', labels: { color: CHART_TEXT } }
                 }
             }
         });
     }
 
-    // Suscripciones por plan
     const suscripcionesCtx = document.getElementById('suscripcionesChart');
     if (suscripcionesCtx && window.suscripcionesData) {
         new Chart(suscripcionesCtx, {
@@ -170,16 +185,13 @@ function initReportesCharts() {
                 labels: window.suscripcionesData.labels,
                 datasets: [{
                     data: window.suscripcionesData.values,
-                    backgroundColor: [
-                        '#6c63ff','#e74c3c','#2ecc71',
-                        '#f0a500','#3498db','#9b59b6'
-                    ],
+                    backgroundColor: CHART_COLORS,
                 }]
             },
             options: {
                 responsive: true,
                 plugins: {
-                    legend: { position: 'bottom', labels: { color: '#ccc' } }
+                    legend: { position: 'bottom', labels: { color: CHART_TEXT } }
                 }
             }
         });

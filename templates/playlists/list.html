@@ -3,7 +3,10 @@
 
 {% block content %}
 <div class="toolbar">
-    <h1 class="page-title"><i class="fas fa-list"></i> Playlists</h1>
+    <div class="title-group">
+        <h1 class="page-title"><i class="fas fa-list"></i> Playlists</h1>
+        <span class="record-count" id="recordCount">{{ playlists|length }} registros</span>
+    </div>
     <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar playlist...">
 </div>
 <div class="card">

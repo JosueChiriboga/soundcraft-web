@@ -1,7 +1,7 @@
 :root {
-    --color-primary:        #6c63ff;
-    --color-primary-hover:  #5a52d5;
-    --color-primary-light:  #8a84ff;
+    --color-primary:        #7B2CBF;
+    --color-primary-hover:  #6324A0;
+    --color-primary-light:  #9B4CD9;
     --color-bg:             #0a0a0a;
     --color-surface:        #1a1a2e;
     --color-surface-dark:   #12122a;
@@ -72,10 +72,15 @@ body {
 }
 
 .logo-img {
-    height: 32px;
+    height: 42px;
     width: auto;
-    vertical-align: middle;
-    margin-right: 4px;
+    display: block;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .navbar-toggle {
@@ -116,11 +121,18 @@ body {
     color: white;
 }
 
+/* FADE-IN ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 /* CONTAINER */
 .container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 2rem;
+    animation: fadeIn 0.35s ease both;
 }
 
 /* PAGE TITLE */
@@ -128,14 +140,12 @@ body {
     font-size: 1.8rem;
     color: var(--color-primary);
     margin-bottom: 1.5rem;
-    border-left: 4px solid var(--color-primary);
-    padding-left: 1rem;
 }
 
 /* STATS GRID */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     margin-bottom: 2rem;
 }
@@ -149,7 +159,17 @@ body {
     align-items: center;
     gap: 1rem;
     transition: transform 0.2s;
+    animation: fadeIn 0.4s ease both;
 }
+
+.stat-card:nth-child(1) { animation-delay: 0.05s; }
+.stat-card:nth-child(2) { animation-delay: 0.10s; }
+.stat-card:nth-child(3) { animation-delay: 0.15s; }
+.stat-card:nth-child(4) { animation-delay: 0.20s; }
+.stat-card:nth-child(5) { animation-delay: 0.25s; }
+.stat-card:nth-child(6) { animation-delay: 0.30s; }
+.stat-card:nth-child(7) { animation-delay: 0.35s; }
+.stat-card:nth-child(8) { animation-delay: 0.40s; }
 
 .stat-card:hover {
     transform: translateY(-3px);
@@ -337,6 +357,21 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.title-group {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+}
+
+.record-count {
+    font-size: 0.85rem;
+    color: var(--color-text-dim);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+}
+
 /* BADGE */
 .badge {
     display: inline-block;
@@ -429,6 +464,7 @@ body {
 @media (max-width: 768px) {
     .dashboard-grid { grid-template-columns: 1fr; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .dashboard-grid { grid-template-columns: 1fr; }
 
     .navbar {
         flex-direction: column;
