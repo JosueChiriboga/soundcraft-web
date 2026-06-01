@@ -115,7 +115,11 @@ function initDashboardCharts() {
                 labels: window.paisData.labels,
                 datasets: [{
                     data: window.paisData.values,
-                    backgroundColor: CHART_COLORS,
+                    backgroundColor: [
+                        '#7B2CBF','#e74c3c','#2ecc71','#f0a500',
+                        '#3498db','#9b59b6','#1abc9c','#e67e22',
+                        '#e91e63','#00bcd4'
+                    ],
                 }]
             },
             options: {
