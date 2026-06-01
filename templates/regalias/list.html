@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 {% block title %}- Regalías{% endblock %}
 
 {% block content %}
@@ -22,7 +23,7 @@
                 <td>{{ r.Artista_idArtista.nombreArtisticoArtista }}</td>
                 <td>{{ r.periodoRegalia }}</td>
                 <td>{{ r.totalReproduccionesRegalia }}</td>
-                <td>${{ r.totalReproduccionesRegalia|floatformat:0 }}</td>
+                <td>${{ r.totalReproduccionesRegalia|multiply:0.004|floatformat:2 }}</td>
                 <td>{{ r.fechaCalculoRegalia|date:"d/m/Y" }}</td>
             </tr>
             {% endfor %}

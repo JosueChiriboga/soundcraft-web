@@ -24,6 +24,12 @@ def dashboard(request):
         'top_canciones': Cancion.objects.annotate(
             total=Count('reproduccion')
         ).order_by('-total')[:5],
+        'reproducciones_por_pais': (
+            Reproduccion.objects
+            .values('paisReproduccion')
+            .annotate(total=Count('idReproduccion'))
+            .order_by('-total')[:10]
+        ),
     }
     return render(request, 'dashboard.html', context)
 

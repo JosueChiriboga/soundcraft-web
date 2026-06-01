@@ -98,8 +98,8 @@
         values: [{% for c in top_canciones %}{{ c.total }}{% if not forloop.last %},{% endif %}{% endfor %}]
     };
     window.paisData = {
-        labels: [{% for r in ultimas_reproducciones %}"{{ r.paisReproduccion }}"{% if not forloop.last %},{% endif %}{% endfor %}],
-        values: [{% for r in ultimas_reproducciones %}1{% if not forloop.last %},{% endif %}{% endfor %}]
+        labels: [{% for r in reproducciones_por_pais %}"{{ r.paisReproduccion }}"{% if not forloop.last %},{% endif %}{% endfor %}],
+        values: [{% for r in reproducciones_por_pais %}{{ r.total }}{% if not forloop.last %},{% endif %}{% endfor %}]
     };
 </script>
 {% endblock %}
